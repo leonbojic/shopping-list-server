@@ -45,7 +45,7 @@ public class ShoppingListServiceImpl implements ShoppingListService {
 
         for (ProductInput product : input.getProducts()) {
             shoppingList.getProducts().add(new Product(product.getName(), product.getAmount(), product.getPrice(),
-                    product.getCategory()));
+                    product.getCategory(), shoppingList));
         }
 
         user.getShoppingLists().add(shoppingList);
@@ -53,7 +53,7 @@ public class ShoppingListServiceImpl implements ShoppingListService {
         shoppingList = shoppingListRepository.save(shoppingList);
         userRepository.save(user);
 
-        return linkTo(methodOn(ShoppingListController.class).one(null, shoppingList.getId())).withRel("one").toUri();
+        return linkTo(methodOn(ShoppingListController.class).one(null, shoppingList.getId())).withSelfRel().toUri();
     }
 
     @Override

@@ -9,13 +9,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedAttributeNode;
+import jakarta.persistence.NamedEntityGraph;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
 @Getter
 @Setter
+@NamedEntityGraph(name = "ShoppingList.products", attributeNodes = @NamedAttributeNode("products"))
 public class ShoppingList {
 
     private @Id @GeneratedValue Long id;
