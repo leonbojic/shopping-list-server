@@ -12,7 +12,9 @@ import leonbojic.shoppinglistserver.assembler.ShoppingListModelAssembler;
 import leonbojic.shoppinglistserver.controller.ShoppingListController;
 import leonbojic.shoppinglistserver.exception.ShoppingListNotFoundException;
 import leonbojic.shoppinglistserver.exception.UserNotFoundException;
+import leonbojic.shoppinglistserver.input.ProductInput;
 import leonbojic.shoppinglistserver.input.ShoppingListInput;
+import leonbojic.shoppinglistserver.model.Product;
 import leonbojic.shoppinglistserver.model.ShoppingList;
 import leonbojic.shoppinglistserver.model.User;
 import leonbojic.shoppinglistserver.output.ShoppingListOutput;
@@ -40,6 +42,11 @@ public class ShoppingListServiceImpl implements ShoppingListService {
                 .orElseThrow(() -> new UserNotFoundException(myUsername));
 
         ShoppingList shoppingList = new ShoppingList(input.getName(), dateNow, user);
+
+        for (ProductInput product : input.getProducts()) {
+            shoppingList.getProducts().add(new Product(product.getName(), product.getAmount(), product.getPrice(),
+                    product.getCategory()));
+        }
 
         user.getShoppingLists().add(shoppingList);
 

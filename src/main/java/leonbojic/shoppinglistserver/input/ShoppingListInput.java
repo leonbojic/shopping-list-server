@@ -1,9 +1,12 @@
 package leonbojic.shoppinglistserver.input;
 
-import lombok.Getter;
+import java.util.List;
 
+import lombok.Getter;
 
 @Getter
 public class ShoppingListInput {
     private String name;
+
+    private List<ProductInput> products;
 }
