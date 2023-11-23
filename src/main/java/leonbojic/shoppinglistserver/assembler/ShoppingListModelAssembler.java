@@ -26,6 +26,9 @@ public class ShoppingListModelAssembler
         em.add(linkTo(methodOn(ShoppingListController.class).one(null, shoppingList.getId()))
                 .withSelfRel());
 
+        em.add(linkTo(methodOn(ShoppingListController.class).update(null, shoppingList.getId(), null))
+            .withRel("update"));
+
         em.add(linkTo(methodOn(ShoppingListController.class).delete(null, shoppingList.getId()))
                 .withRel("delete"));
 
@@ -35,6 +38,7 @@ public class ShoppingListModelAssembler
         em.add(linkTo(methodOn(ProductController.class).create(null, shoppingList.getId(), null))
                 .withRel("addProduct"));
 
+        
         return em;
     }
 }

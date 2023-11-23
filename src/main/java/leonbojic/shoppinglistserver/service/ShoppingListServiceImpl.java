@@ -12,6 +12,7 @@ import leonbojic.shoppinglistserver.assembler.ShoppingListModelAssembler;
 import leonbojic.shoppinglistserver.controller.ShoppingListController;
 import leonbojic.shoppinglistserver.exception.ShoppingListNotFoundException;
 import leonbojic.shoppinglistserver.exception.UserNotFoundException;
+import leonbojic.shoppinglistserver.input.EditListInput;
 import leonbojic.shoppinglistserver.input.ProductInput;
 import leonbojic.shoppinglistserver.input.ShoppingListInput;
 import leonbojic.shoppinglistserver.model.Product;
@@ -85,9 +86,23 @@ public class ShoppingListServiceImpl implements ShoppingListService {
 
     @Override
     public EntityModel<ShoppingListOutput> loadOne(String myUsername, Long id) {
-        ShoppingList shoppingList = shoppingListRepository.findById(id)
+        ShoppingList shoppingList = shoppingListRepository.findByIdAndOwnerUsername(id, myUsername)
                 .orElseThrow(() -> new ShoppingListNotFoundException(id));
 
         return modelAssembler.toModel(shoppingList);
     }
+
+    @Override
+    public EntityModel<ShoppingListOutput> update(String myUsername, Long id, EditListInput input) {
+        ShoppingList shoppingList = shoppingListRepository.findByIdAndOwnerUsername(id, myUsername)
+                .orElseThrow(() -> new ShoppingListNotFoundException(id));
+
+        shoppingList.setTimeBought(input.getDate());
+        shoppingList.setName(input.getName());
+
+        shoppingList = shoppingListRepository.save(shoppingList);
+
+        return modelAssembler.toModel(shoppingList);
+    }
+
 }

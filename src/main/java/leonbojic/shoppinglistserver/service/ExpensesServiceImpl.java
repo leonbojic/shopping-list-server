@@ -32,12 +32,15 @@ public class ExpensesServiceImpl implements ExpensesService {
         List<ShoppingList> lists = shoppingListRepository.findByOwnerUsernameAndTimeBoughtBetween(myUsername, startDate, endDate);
 
         Map<ProductCategory, Integer> expenses = new EnumMap<>(ProductCategory.class);
+        for (ProductCategory category : ProductCategory.values()) {
+            expenses.put(category, 0);
+        }
 
         for(ShoppingList list : lists){
             for (Product product : list.getProducts()){
                 ProductCategory category = product.getCategory();
                 int expense = product.getPrice() * product.getAmount();
-                expenses.put(category, expenses.getOrDefault(category, 0) + expense);
+                expenses.put(category, expenses.get(category) + expense);
             }
         }
 

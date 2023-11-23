@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import leonbojic.shoppinglistserver.input.EditListInput;
 import leonbojic.shoppinglistserver.input.ShoppingListInput;
 import leonbojic.shoppinglistserver.output.ShoppingListOutput;
 import leonbojic.shoppinglistserver.service.ShoppingListService;
@@ -46,5 +48,13 @@ public class ShoppingListController {
     @GetMapping
     public ResponseEntity<CollectionModel<EntityModel<ShoppingListOutput>>> all(Principal principal) {
         return ResponseEntity.ok(shoppingListService.loadAll(principal.getName()));
+    }
+
+    @PutMapping("/{id}/update")
+    public ResponseEntity<EntityModel<ShoppingListOutput>> update(
+            Principal principal,
+            @PathVariable Long id,
+            @RequestBody EditListInput input) {
+        return ResponseEntity.ok(shoppingListService.update(principal.getName(), id, input));
     }
 }
