@@ -47,7 +47,8 @@ public class ProductController {
             Principal principal,
             @PathVariable Long listId,
             @RequestBody ProductInput input) {
-        return ResponseEntity.created(productService.create(principal.getName(), listId, input)).build();
+                
+        return ResponseEntity.status(201).body(productService.create(principal.getName(), listId, input));
     }
 
     @PutMapping("/{productId}/update")

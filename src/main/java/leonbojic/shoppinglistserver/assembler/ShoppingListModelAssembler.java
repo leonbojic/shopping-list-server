@@ -18,7 +18,7 @@ public class ShoppingListModelAssembler
     @Override
     public EntityModel<ShoppingListOutput> toModel(ShoppingList shoppingList) {
 
-        ShoppingListOutput output = new ShoppingListOutput(shoppingList.getName(),
+        ShoppingListOutput output = new ShoppingListOutput(shoppingList.getId(), shoppingList.getName(),
                 shoppingList.getTimeBought());
 
         EntityModel<ShoppingListOutput> em = EntityModel.of(output);

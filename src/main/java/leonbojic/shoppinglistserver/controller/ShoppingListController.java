@@ -28,7 +28,7 @@ public class ShoppingListController {
     @PostMapping("/create")
     public ResponseEntity<?> create(Principal principal, @RequestBody ShoppingListInput input) {
 
-        return ResponseEntity.created(shoppingListService.create(principal.getName(), input)).build();
+        return ResponseEntity.status(201).body(shoppingListService.create(principal.getName(), input));
     }
 
     @DeleteMapping("/{id}/delete")
