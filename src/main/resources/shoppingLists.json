@@ -1,0 +1,242 @@
+[
+    {
+        "name": "List 1",
+        "timeBought": "2023-09-26",
+        "products": [
+            {
+                "name": "Milk",
+                "price": 200,
+                "amount": 1,
+                "category": "GROCERIES"
+            },
+            {
+                "name": "T-shirt",
+                "price": 500,
+                "amount": 2,
+                "category": "CLOTHES"
+            }
+        ]
+    },
+    {
+        "name": "List 2",
+        "timeBought": "2023-09-27",
+        "products": [
+            {
+                "name": "Toothpaste",
+                "price": 300,
+                "amount": 1,
+                "category": "HOUSEHOLD_ITEMS"
+            },
+            {
+                "name": "Phone charger",
+                "price": 1000,
+                "amount": 1,
+                "category": "ELECTRONICS"
+            }
+        ]
+    },
+    {
+        "name": "Monthly Groceries",
+        "timeBought": "2023-09-15",
+        "products": [
+            {
+                "name": "Milk",
+                "price": 250,
+                "amount": 2,
+                "category": "GROCERIES"
+            },
+            {
+                "name": "Eggs",
+                "price": 300,
+                "amount": 1,
+                "category": "GROCERIES"
+            },
+            {
+                "name": "Cereal",
+                "price": 450,
+                "amount": 2,
+                "category": "GROCERIES"
+            }
+        ]
+    },
+    {
+        "name": "Electronics Upgrade",
+        "timeBought": "2023-10-20",
+        "products": [
+            {
+                "name": "4K TV",
+                "price": 80000,
+                "amount": 1,
+                "category": "ELECTRONICS"
+            },
+            {
+                "name": "Gaming Console",
+                "price": 60000,
+                "amount": 1,
+                "category": "ELECTRONICS"
+            }
+        ]
+    },
+    {
+        "name": "Holiday Shopping",
+        "timeBought": "2023-11-24",
+        "products": [
+            {
+                "name": "Gift Cards",
+                "price": 5000,
+                "amount": 4,
+                "category": "OTHER"
+            },
+            {
+                "name": "Winter Clothes",
+                "price": 15000,
+                "amount": 1,
+                "category": "CLOTHES"
+            },
+            {
+                "name": "Cookware Set",
+                "price": 20000,
+                "amount": 1,
+                "category": "HOUSEHOLD_ITEMS"
+            }
+        ]
+    },
+    {
+        "name": "Grocery Shopping",
+        "timeBought": "2023-10-24",
+        "products": [
+            {
+                "name": "Apples",
+                "price": 100,
+                "amount": 1,
+                "category": "GROCERIES"
+            },
+            {
+                "name": "Pasta",
+                "price": 200,
+                "amount": 3,
+                "category": "GROCERIES"
+            },
+            {
+                "name": "Bread",
+                "price": 90,
+                "amount": 2,
+                "category": "GROCERIES"
+            },
+            {
+                "name": "Milk",
+                "price": 200,
+                "amount": 1,
+                "category": "GROCERIES"
+            }
+        ]
+    },
+    {
+        "name": "Electronics Haul",
+        "timeBought": "2023-11-25",
+        "products": [
+            {
+                "name": "Laptop",
+                "price": 92000,
+                "amount": 1,
+                "category": "ELECTRONICS"
+            },
+            {
+                "name": "Headphones",
+                "price": 5050,
+                "amount": 1,
+                "category": "ELECTRONICS"
+            },
+            {
+                "name": "Smartwatch",
+                "price": 300,
+                "amount": 1,
+                "category": "ELECTRONICS"
+            }
+        ]
+    },
+    {
+        "name": "Home Essentials",
+        "timeBought": "2023-11-30",
+        "products": [
+            {
+                "name": "Laundry Detergent",
+                "price": 700,
+                "amount": 1,
+                "category": "HOUSEHOLD_ITEMS"
+            },
+            {
+                "name": "Trash Bags",
+                "price": 400,
+                "amount": 1,
+                "category": "HOUSEHOLD_ITEMS"
+            },
+            {
+                "name": "Lightbulbs",
+                "price": 300,
+                "amount": 4,
+                "category": "HOUSEHOLD_ITEMS"
+            }
+        ]
+    },
+    {
+        "name": "Grocery Shopping",
+        "timeBought": "2023-10-24",
+        "products": [
+            {
+                "name": "Apples",
+                "price": 300,
+                "amount": 5,
+                "category": "GROCERIES"
+            },
+            {
+                "name": "Pasta",
+                "price": 200,
+                "amount": 3,
+                "category": "GROCERIES"
+            },
+            {
+                "name": "Bread",
+                "price": 400,
+                "amount": 2,
+                "category": "GROCERIES"
+            },
+            {
+                "name": "Milk",
+                "price": 200,
+                "amount": 1,
+                "category": "GROCERIES"
+            }
+        ]
+    },
+    {
+        "name": "Car Shopping",
+        "timeBought": "2023-12-01",
+        "products": [
+            {
+                "name": "Lambo",
+                "price": 12000000,
+                "amount": 1,
+                "category": "OTHER"
+            }
+        ]
+    },
+    {
+        "name": "Home Improvement",
+        "timeBought": "2023-10-04",
+        "products": [
+            {
+                "name": "Paint Cans",
+                "price": 2500,
+                "amount": 3,
+                "category": "HOUSEHOLD_ITEMS"
+            },
+            {
+                "name": "Screws",
+                "price": 800,
+                "amount": 2,
+                "category": "HOUSEHOLD_ITEMS"
+            }
+        ]
+    }
+]
