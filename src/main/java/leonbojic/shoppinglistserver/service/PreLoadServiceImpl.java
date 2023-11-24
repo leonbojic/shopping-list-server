@@ -1,11 +1,10 @@
 package leonbojic.shoppinglistserver.service;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -30,10 +29,14 @@ public class PreLoadServiceImpl implements PreLoadService {
     public void createUserHistory(User user) {
         List<ShoppingList> lists = readJsonFile();
 
+        if (lists == null) {
+            return;
+        }
+
         for (ShoppingList list : lists) {
             user.getShoppingLists().add(list);
             list.setOwner(user);
-            for(Product product : list.getProducts()){
+            for (Product product : list.getProducts()) {
                 product.setShoppingList(list);
             }
         }
@@ -48,14 +51,16 @@ public class PreLoadServiceImpl implements PreLoadService {
         List<ShoppingList> shoppingLists = null;
 
         try {
-            Resource resource = new ClassPathResource("shoppingLists.json");
-            File file = resource.getFile();
-            shoppingLists = objectMapper.readValue(file, new TypeReference<List<ShoppingList>>() {
-            });
+            InputStream inputStream = getClass().getResourceAsStream("/shoppingLists.json");
+            if (inputStream != null) {
+                shoppingLists = objectMapper.readValue(inputStream, new TypeReference<List<ShoppingList>>() {
+                });
+            } else {
+                throw new FileNotFoundException("shoppingLists.json not found");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return shoppingLists;
     }
 
