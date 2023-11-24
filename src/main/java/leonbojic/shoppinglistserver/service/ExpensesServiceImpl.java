@@ -27,7 +27,7 @@ public class ExpensesServiceImpl implements ExpensesService {
         }
 
         LocalDate startDate = LocalDate.of(year, month, 1);
-        LocalDate endDate = startDate.plusMonths(1);
+        LocalDate endDate = startDate.plusMonths(1).minusDays(1);
 
         List<ShoppingList> lists = shoppingListRepository.findByOwnerUsernameAndTimeBoughtBetween(myUsername, startDate, endDate);
 
